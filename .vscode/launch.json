@@ -1,0 +1,31 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "type": "probe-rs-debug",
+            "preLaunchTask": "${defaultBuildTask}",
+            "request": "launch",
+            "name": "porky",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "probe-rs",
+            "wireProtocol": "Swd",
+            "connectUnderReset": false,
+            "chip": "RP2040",
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "haltAfterReset": true
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "target/thumbv6m-none-eabi/debug/porky",
+                    "rttEnabled": true
+                }
+            ],
+            "consoleLogLevel": "Console",
+            "env": {
+                "DEFMT_LOG": "info"
+            },
+        },
+    ]
+  }
