@@ -28,13 +28,15 @@ use panic_probe as _;
 use static_cell::StaticCell;
 use rand::RngCore;
 
+// TODO put your own service names in here...
 pub const TCP_MDNS_SERVICE_NAME: &str = "_pigg";
 pub const TCP_MDNS_SERVICE_PROTOCOL: &str = "_tcp";
 pub const TCP_MDNS_SERVICE_TYPE: &str = "_pigg._tcp.local.";
 
-const SSID_NAME: &str = "MOVISTAR_8A9E";
-const SSID_PASS: &str = "E68N8MA422GRQJQTPqjN";
-const SSID_SECURITY: &str = "wpa2";
+// TODO edit this for your wifi credentials.
+const SSID_NAME: &str = "Put your WiFi SSID name here";
+const SSID_PASS: &str = "Put your Wifi password here";
+const SSID_SECURITY: &str = "wpa2"; // edit if you use wpa, open or wpa3
 const STACK_RESOURCES_SOCKET_COUNT: usize = 5;
 
 bind_interrupts!(struct Irqs {
