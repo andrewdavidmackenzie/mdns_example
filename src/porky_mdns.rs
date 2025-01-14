@@ -240,6 +240,8 @@ async fn main(spawner: Spawner) {
     // PIN_23 - OP wireless power on signal
     let (mut control, wifi_stack) = start_net(spawner, peripherals.PIN_23, spi).await;
 
+    let _ = control.add_multicast_address([0x01, 0x00, 0x5e, 0x00, 0x00, 0xfb]).await;
+
     let ip = join(&mut control, wifi_stack).await.unwrap();
     info!("Assigned IP: {}", ip);
 
